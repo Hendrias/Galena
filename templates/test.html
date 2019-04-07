@@ -84,7 +84,9 @@
     color: white;
     font-size:1.18em;
 }
-
+body{
+  background-color: black;
+}
 </style>
   <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
 <script src="https://js.arcgis.com/4.11/"></script>
@@ -154,30 +156,42 @@ require([
       width: 1
     }
   });
-  var cars = document.getElementById('list').innerHTML;
-  var obj = JSON.stringify(cars);
-  var work = JSON.parse(obj);
+  var cars = document.getElementById('list').innerText.trim();
   
-  console.log(work);
-  for(i in work){
-    for(j in work.[i]){
-      console.log(work.[].[]);
-    }
-  }
- 
-  console.log(work[0][0][0]);
-  var text ="";
-  for(var i=0; i<1; i++){
-    var long = work[i][2];
-    var lat =  work[i][1];
+  var cars_reg = cars.replace(/'/g,'"').trim();
+  var obj = JSON.stringify(cars_reg).trim();
+  var w = obj.split('], ');
 
-    var name = work[i][0];
+  var all = [];
+  for (var i = 0; i < w.length; i++) {
+    var ww = w[i].split("[");
+      for (var j = 0; j < ww.length; j++) {
+        var www = (w[i].split("[\\")[1].split("\""));
+        for (var k = 0; k < www.length;k++) {
+          var a = [];
+          a.push(www[1].split("\\")[0].split("\"")[0]);
+          a.push(www[3].split("\\")[0].split("\"")[0]);
+          a.push(www[5].split("\\")[0].split("\"")[0]);
+          all.push(a);
+        }
+      }
+  }
+  
+  var text ="";
+  for(var i=0; i<350; i++){
+    var long = all[i][1];
+    var lat =  all[i][2];
+
+    // var name = work[i][0];
     var name = new Point({
     longitude: long,
     latitude: lat
     });
 
-    text =work[i][0]+"te"
+    var popupTemplate = {
+    title: all[i][0]};
+
+    text =all[i][0]+"te"
     var text = new Graphic({
     geometry:name ,
     symbol: markerSymbol,
@@ -186,7 +200,6 @@ require([
     });
 
     view.graphics.add(text);
-//626 399 1100
 
   }
   // Create a point
@@ -231,7 +244,7 @@ require([
   view.graphics.add(pointGraphic2);*/
   
   // Create a line geometry
-  var polyline = new Polyline({
+  /*var polyline = new Polyline({
     paths: [
       [-118.29026, 34.1816],
       [-118.26451, 34.09664]
@@ -282,8 +295,7 @@ require([
   });
 
   // Add the graphic to the view
-  view.graphics.add(polygonGraphic);
-
+  view.graphics.add(polygonGraphic*/
 });</script>
 </head>
 <body>

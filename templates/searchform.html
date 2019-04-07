@@ -4,12 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Languages</title>
+	<link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<style>
 		.form-check-label {
 			padding-top: calc(.5rem - 1px * 2);
 			padding-bottom: calc(.5rem - 1px * 2);
 			margin-bottom: 0;
+		}
+		
+		.container{
+			margin: auto;
+  			width: 40%;
+  			margin-top:10%;
+  			text-align: center;
+  			border: 2px solid black;
+  			border-radius: 5px;
+  			padding-top: 10px;
+  			padding-bottom: 20px;
+  				font-family: 'Didact Gothic';font-size: 22px;
+  				color: orange;
+  				background-color: white;
+		}
+		body{
+			background-color: black;
+		}
+		.label{
+			font-family: 'Allan';font-size: 22px;
+
 		}
 	</style>
 </head>
@@ -18,15 +40,14 @@
 	<div class="container">
 		<label style = "display:inline-block">Endangered Language By: </label>
 		<form  action="/index2" method = "POST">
-			<input name="number" type="text">
+			
 		  <select name="search">
 		    <option value="Definitely endangered">Definitely Endangered</option>
 		    <option value="Vulnerable">Vulnerable</option>
 		    <option value="Severely endangered">Severely endangered</option>
 		    <option value="Critically endangered">Critically endangered</option>
-		    <option value="Extinct">Extinct</option>
-		    <option value="countries">Countries</option>
-
+		   
+		   
 		  </select>
 
 		  

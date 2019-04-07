@@ -41,7 +41,7 @@ def read_languages():
         y = json.loads(line)
 
         key = y["Name in English"]
-        value = [y["Countries"], y["Country codes alpha 3"], y["Degree of endangerment"], y["Number of speakers"], y["Latitude"], y["Longitude"]]
+        value = [y["Name in English"], y["Country codes alpha 3"], y["Degree of endangerment"], y["Number of speakers"], y["Latitude"], y["Longitude"]]
         languages[key] = value
     return languages
 
