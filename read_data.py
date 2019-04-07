@@ -1,6 +1,7 @@
 import csv, json, numpy, cgi
 from bokeh.plotting import figure, show, output_file
 from urllib.parse import urlparse
+from flask import Flask, render_template, request
 
 class SetEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -138,14 +139,14 @@ def get_less_than(number):
 
 #print(get_less_than(10))
 
-def read_form():
+def read_form(search_term):
     form = cgi.FieldStorage()
     lang = []
-    search_term = form.getvalue("search")
     if search_term in ['Vulnerable', 'Definitely endangered', 'Severely endangered', 'Critically endangered', 'Extinct']:
         lang = get_status(search_term)
     elif search_term == "countries":
         lang = get_all_countries()
     elif search_term == "number":
         lang = get_less_than(50000)
+    print(search_term, lang)
     return lang

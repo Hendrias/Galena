@@ -3,15 +3,15 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-lang = read_form()
-
 @app.route('/')
 def index():
-	return render_template('searchform.html')
+        return render_template('searchform.html')
 
 @app.route('/index2',methods = ['POST', 'GET'])
 def index2():
-	return render_template("test.html",lang = lang)
+        search_term = request.form["search"]
+        lang = read_form(search_term)
+        return render_template("test.html",lang = lang)
 
 # @app.route('/index2')
 # def index2():
@@ -51,4 +51,6 @@ def index2():
 #         read_data.read_form(number,search);
 
 if __name__ == '__main__':
-	app.run(debug=True)
+        search_term = request.form["search"]
+        lang = read_form(search_term)
+        app.run(debug=True)
