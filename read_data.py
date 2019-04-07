@@ -63,7 +63,6 @@ def get_all_countries():
             countries.add(languages.get(language)[0])
     countries_json = json.dumps(countries, cls=SetEncoder)
     return countries_json
-print(get_all_countries())
 
 
 def get_country_code(language):
@@ -123,9 +122,29 @@ def display_data():
     show(p)  # open a browser
 
 
+def get_less_than(number):
+    languages = read_languages()
+    lang = []
+    for key, language in languages.items():
+        try:
+            if language[3] != '':
+                if int(language[3]) < number:
+                    value = [key, language[0], language[4], language[5]]
+                    lang.append(value)
+        except ValueError as e:
+            pass
+    return lang
+
+print(get_less_than(10))
+
 def read_form():
     form = cgi.FieldStorage()
     search_term = form.getvalue("search")
-    status = get_status(search_term)
+    if search_term in ['Vulnerable', 'Definitely endangered', 'Severely endangered', 'Critically endangered', 'Extinct']:
+        status = get_status(search_term)
+    elif search_term == "countries":
+        countries = get_all_countries()
+    elif search_term == "number":
+        number = get_less_than(50000)
     
         
