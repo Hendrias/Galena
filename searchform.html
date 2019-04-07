@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Languages</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		.form-check-label {
+			padding-top: calc(.5rem - 1px * 2);
+			padding-bottom: calc(.5rem - 1px * 2);
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+
+		<form action="read_data.py" method="POST">
+
+			<div class="form-group row">
+				<label for="media-type-id" class="col-sm-3 col-form-label text-sm-right">
+					Search by: <span class="text-danger"></span>
+				</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"  name="search">
+						</div>
+
+			</div> <!-- .form-group -->
+
+			<div class="form-group row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-9 mt-2">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div> <!-- .form-group -->
+		</form>
+	</div> <!-- .container -->
+</body>
+</html>
