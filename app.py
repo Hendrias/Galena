@@ -11,6 +11,7 @@ def index():
 def index2():
         search_term = request.form["search"]
         lang = read_form(search_term)
+        print(lang)
         return render_template("test.html",lang = lang)
 
 # @app.route('/index2')

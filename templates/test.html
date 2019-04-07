@@ -154,19 +154,30 @@ require([
       width: 1
     }
   });
-  var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+  var cars = document.getElementById('list').innerHTML;
+  var obj = JSON.stringify(cars);
+  var work = JSON.parse(obj);
+  
+  console.log(work);
+  for(i in work){
+    for(j in work.[i]){
+      console.log(work.[].[]);
+    }
+  }
+ 
+  console.log(work[0][0][0]);
   var text ="";
-  for(i=0; i<cars.length; i++){
-    var long = -118.29507 + (i*10);
-    var lat =  34.13501 + (i*10);
+  for(var i=0; i<1; i++){
+    var long = work[i][2];
+    var lat =  work[i][1];
 
-    var name = cars[i];
+    var name = work[i][0];
     var name = new Point({
     longitude: long,
     latitude: lat
     });
 
-    text =cars[i]+"te"
+    text =work[i][0]+"te"
     var text = new Graphic({
     geometry:name ,
     symbol: markerSymbol,
@@ -175,7 +186,7 @@ require([
     });
 
     view.graphics.add(text);
-
+//626 399 1100
 
   }
   // Create a point
@@ -295,6 +306,10 @@ require([
       
       <input type="submit">
     </form> -->
+    <div id="list" style="display:none">
+    {{lang}}
+    </div>
+    
     </div>
   
 

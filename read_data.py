@@ -148,5 +148,5 @@ def read_form(search_term):
         lang = get_all_countries()
     elif search_term == "number":
         lang = get_less_than(50000)
-    print(search_term, lang)
+    # print(search_term, lang)
     return lang
