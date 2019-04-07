@@ -16,25 +16,19 @@
 <body>
 	
 	<div class="container">
+		<label style = "display:inline-block">Endangered Language By: </label>
+		<form  action="read_data.py" method = "POST">
+		  <select name="search">
+		    <option value="Definitely endangered">Definitely Endangered</option>
+		    <option value="Vulnerable">Vulnerable</option>
+		    <option value="Severely endangered">Severely endangered</option>
+		    <option value="Critically endangered">Critically endangered</option>
+		    <option value="Extinct">Extinct</option>
+		    <option value="Countries">Countries</option>
 
-		<form action="read_data.py" method="POST">
-
-			<div class="form-group row">
-				<label for="media-type-id" class="col-sm-3 col-form-label text-sm-right">
-					Search by: <span class="text-danger"></span>
-				</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control"  name="search">
-						</div>
-
-			</div> <!-- .form-group -->
-
-			<div class="form-group row">
-				<div class="col-sm-3"></div>
-				<div class="col-sm-9 mt-2">
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</div>
-			</div> <!-- .form-group -->
+		  </select>
+		  <br><br>
+		  <input type="submit">
 		</form>
 	</div> <!-- .container -->
 </body>
