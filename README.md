@@ -1,6 +1,6 @@
 # Galena
 
-**About**
+**About**<br>
 A website that allows you to see endangered languages around the globe on a map! We built this website for the 2019 Athena Hacks.
 
 **Prerequisites**
